@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+
+  <!-- ===== PRIMARY META (SEO) ===== -->
+  <title>TEKZAA Renderer V7 · deterministic canvas → MP4 | free online tool</title>
+  <meta name="description" content="Render deterministic canvas animations to MP4 in your browser. TEKZAA Renderer V7 supports WebCodecs, H.264, exact frame timing, and no iframe. Free, fast, privacy-friendly.">
+  <meta name="keywords" content="canvas to mp4, deterministic rendering, webcodecs, h264, animation renderer, tekzaa, generative engine optimization, GEO, AEO, LLMO">
+  <meta name="author" content="TEKZAA">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+  <!-- ===== CANONICAL ===== -->
+  <link rel="canonical" href="https://tekzaa-renderer.netlify.app/renderer-v7">
+
+  <!-- ===== OPEN GRAPH / SOCIAL ===== -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="TEKZAA Renderer V7 · deterministic canvas → MP4">
+  <meta property="og:description" content="Render canvas animations to MP4 with deterministic timing. WebCodecs + H.264. No iframe, no external assets. Free and open.">
+  <meta property="og:url" content="https://tekzaa-renderer.netlify.app/renderer-v7">
+  <meta property="og:image" content="https://tekzaa-renderer.netlify.app/og-renderer.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TEKZAA Renderer V7 — canvas to MP4">
+  <meta name="twitter:description" content="Deterministic canvas rendering to MP4. WebCodecs, H.264, precise frame timing.">
+
+  <!-- ===== AEO / GEO / LLMO Structured Data ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://tekzaa-renderer.netlify.app/renderer-v7#webapp",
+        "name": "TEKZAA Renderer V7",
+        "description": "Deterministic canvas rendering to MP4 using WebCodecs and H.264. Export high-quality videos from code with exact frame timing. No iframe, no external assets.",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Chrome, Edge, Opera (Chromium-based)",
+        "browserRequirements": "Requires WebCodecs (VideoEncoder, VideoFrame) and Canvas 2D.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "creator": {
+          "@type": "Organization",
+          "name": "TEKZAA",
+          "url": "https://tekzaa-renderer.netlify.app"
+        },
+        "featureList": [
+          "Deterministic canvas rendering",
+          "WebCodecs H.264 encoding",
+          "No iframe, no external assets",
+          "Stale-safe render invalidation",
+          "Precise frame timing",
+          "In-memory MP4 generation"
+        ],
+        "softwareVersion": "7",
+        "datePublished": "2025-03-01",
+        "dateModified": "2025-03-01"
+      },
+      {
+        "@type": "HowTo",
+        "name": "How to render canvas animation to MP4 with TEKZAA Renderer V7",
+        "description": "A step-by-step guide to converting a deterministic canvas animation into an MP4 video using the TEKZAA Renderer V7 web tool.",
+        "totalTime": "PT2M",
+        "estimatedCost": {
+          "@type": "MonetaryAmount",
+          "currency": "USD",
+          "value": "0"
+        },
+        "tool": [
+          {
+            "@type": "HowToTool",
+            "name": "TEKZAA Renderer V7"
+          }
+        ],
+        "step": [
+          {
+            "@type": "HowToStep",
+            "name": "Paste animation code",
+            "text": "Paste your animation code into the editor. It must define window.TEKZAA_RENDER = function(time, ctx, width, height) { ... }"
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Set output parameters",
+            "text": "Choose aspect ratio, width, height, duration, FPS, and bitrate."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Load preview",
+            "text": "Click 'Load Preview' to check the animation and fix any validation issues."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Render MP4",
+            "text": "Click 'Render MP4' and wait for the progress bar to complete."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Download",
+            "text": "Click 'Download MP4' to save the video file."
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is deterministic canvas rendering?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Deterministic rendering means the entire frame is drawn from scratch on every call using only the time argument for animation. It avoids requestAnimationFrame, setTimeout, Math.random, and Date.now, so every frame is reproducible and exactly matched to the target timestamp."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which browsers support TEKZAA Renderer V7?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The renderer requires WebCodecs (VideoEncoder and VideoFrame) and Canvas 2D. It works best in recent Chromium-based browsers such as Chrome, Edge, and Opera. Firefox and Safari currently have limited or no WebCodecs support for this use case."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I use external images or fonts?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. External assets are not allowed because they introduce non-deterministic loading and may break rendering. Embed images as data URIs and use system fonts or inline web fonts as needed."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does the stale-safe render invalidation work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Any change to code, aspect ratio, dimensions, duration, FPS, or bitrate immediately invalidates the previously rendered MP4. The download banner is hidden and the button resets to 'Render MP4', ensuring the downloaded video always matches the current settings."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this tool free to use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. TEKZAA Renderer V7 is completely free and runs entirely in your browser. No data is sent to a server, and the generated MP4 is created in memory before download."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "TechArticle",
+        "headline": "TEKZAA Renderer V7: deterministic canvas to MP4",
+        "description": "Technical deep dive into the deterministic rendering contract, WebCodecs encoding pipeline, and stale-safe export flow.",
+        "author": {
+          "@type": "Organization",
+          "name": "TEKZAA"
+        },
+        "datePublished": "2025-03-01",
+        "proficiencyLevel": "Expert",
+        "keywords": "canvas, mp4, webcodecs, h264, deterministic rendering, animation, tekzaa"
+      }
+    ]
+  }
+  </script>
+
+  <!-- ===== STYLES (unchanged) ===== -->
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #0b0d12;
+      color: #eef2f8;
+      padding: 1rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .app {
+      max-width: 1600px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      flex: 1;
+    }
+
+    /* ---- header / nav ---- */
+    .header-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.75rem 1.25rem;
+    }
+
+    h1 {
+      font-weight: 500;
+      font-size: 1.4rem;
+      margin: 0;
+      letter-spacing: -0.02em;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.4rem 0.75rem;
+    }
+
+    h1 span {
+      background: #1e3a8a;
+      padding: 0.15rem 0.75rem;
+      border-radius: 100px;
+      font-size: 0.7rem;
+      color: #bfdbfe;
+      white-space: nowrap;
+    }
+
+    .nav-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-left: auto;
+    }
+
+    .nav-buttons a {
+      text-decoration: none;
+    }
+
+    .nav-buttons button {
+      background: #1e2532;
+      border: 1px solid #2e3a4b;
+      color: #cbd5e1;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      font-weight: 500;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: 0.15s;
+      white-space: nowrap;
+    }
+
+    .nav-buttons button:hover {
+      background: #2a3444;
+      border-color: #4a5d7a;
+      color: #fff;
+    }
+
+    /* ---- grid ---- */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    @media (max-width: 1100px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ---- panels ---- */
+    .panel {
+      background: #14181f;
+      border: 1px solid #2a3342;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .panel-head {
+      padding: 0.6rem 1rem;
+      background: #10151c;
+      border-bottom: 1px solid #1d2531;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #8b9bb5;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .panel-head span:first-child {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    /* ---- textarea ---- */
+    textarea {
+      width: 100%;
+      min-height: 260px;
+      background: #0f1219;
+      border: none;
+      padding: 1rem;
+      color: #d4e2fc;
+      font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+      font-size: 0.75rem;
+      line-height: 1.55;
+      resize: vertical;
+      outline: none;
+      transition: min-height 0.2s;
+      tab-size: 2;
+    }
+
+    @media (min-width: 800px) {
+      textarea {
+        min-height: 340px;
+        font-size: 0.8rem;
+      }
+    }
+
+    /* ---- preview stage ---- */
+    .preview-stage {
+      background: #090c11;
+      min-height: 260px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 1rem;
+      transition: min-height 0.2s;
+    }
+
+    @media (min-width: 800px) {
+      .preview-stage {
+        min-height: 400px;
+      }
+    }
+
+    #previewCanvas {
+      border: 0;
+      background: #000;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+      border-radius: 4px;
+      max-width: 100%;
+      max-height: 100%;
+      display: block;
+      object-fit: contain;
+    }
+
+    /* ---- controls ---- */
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 0.75rem;
+      padding: 0.75rem 1rem;
+      background: #10151c;
+      border-top: 1px solid #1d2531;
+      align-items: flex-end;
+    }
+
+    .ctrl {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      min-width: 60px;
+    }
+
+    .ctrl label {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      color: #7d8fa8;
+      letter-spacing: 0.05em;
+    }
+
+    select,
+    input[type=number],
+    input[type=text] {
+      background: #1b222e;
+      border: 1px solid #2e3a4b;
+      color: #eef2f8;
+      padding: 0.35rem 0.5rem;
+      border-radius: 0.4rem;
+      font-size: 0.75rem;
+      outline: none;
+      width: 100%;
+      min-width: 60px;
+      transition: border-color 0.15s;
+    }
+
+    select:hover,
+    input:hover {
+      border-color: #4a5d7a;
+    }
+
+    select:focus,
+    input:focus {
+      border-color: #3b6eff;
+      box-shadow: 0 0 0 2px rgba(59, 110, 255, 0.25);
+    }
+
+    /* ---- buttons ---- */
+    button {
+      background: #2d3b5e;
+      border: 1px solid transparent;
+      color: white;
+      padding: 0.45rem 1rem;
+      border-radius: 0.5rem;
+      font-weight: 500;
+      font-size: 0.78rem;
+      cursor: pointer;
+      transition: 0.15s;
+      white-space: nowrap;
+      line-height: 1.3;
+    }
+
+    button:hover {
+      background: #3e5280;
+    }
+
+    button.primary {
+      background: #3b6eff;
+    }
+
+    button.primary:hover {
+      background: #2a5aef;
+    }
+
+    button.success {
+      background: #059669;
+    }
+
+    button.success:hover {
+      background: #047857;
+    }
+
+    button.danger {
+      background: #b91c1c;
+    }
+
+    button.danger:hover {
+      background: #991b1b;
+    }
+
+    button:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    /* ---- status ---- */
+    .status {
+      padding: 0.5rem 1rem;
+      background: #10161f;
+      border-radius: 0.5rem;
+      font-size: 0.75rem;
+      color: #8b9bb5;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem 0.75rem;
+      border: 1px solid #1d2531;
+      margin: 0.5rem 1rem 0;
+    }
+
+    .badge {
+      background: #1a212c;
+      padding: 0.2rem 0.6rem;
+      border-radius: 100px;
+      font-size: 0.65rem;
+      border: 1px solid #2c3543;
+      white-space: nowrap;
+    }
+
+    .badge.ok {
+      background: #052e1f;
+      border-color: #065f46;
+      color: #6ee7b7;
+    }
+
+    .badge.err {
+      background: #3a1414;
+      border-color: #7f1d1d;
+      color: #fca5a5;
+    }
+
+    .badge.rec {
+      background: #3a1414;
+      border-color: #dc2626;
+      color: #fca5a5;
+      animation: pulse 1s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.55; }
+    }
+
+    /* ---- progress ---- */
+    .progress-bar {
+      height: 4px;
+      background: #1a212c;
+      border-radius: 100px;
+      overflow: hidden;
+      margin: 0.5rem 1rem 0;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: #3b6eff;
+      width: 0%;
+      transition: width 0.1s linear;
+    }
+
+    /* ---- notes / diag ---- */
+    .note {
+      font-size: 0.72rem;
+      color: #77869e;
+      padding: 0.6rem 0.9rem;
+      background: #0f141c;
+      border-left: 3px solid #3b6eff;
+      border-radius: 0.4rem;
+      line-height: 1.6;
+      word-break: break-word;
+    }
+
+    .note strong {
+      color: #b9c8f0;
+    }
+
+    .diag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      color: #a0b4d0;
+      padding: 0 1rem 0.5rem;
+      min-height: 1.2rem;
+      word-break: break-word;
+    }
+
+    /* ---- validation ---- */
+    .validation-list {
+      padding: 0.3rem 1rem 0.5rem;
+      font-size: 0.68rem;
+      font-family: 'JetBrains Mono', monospace;
+      line-height: 1.6;
+      word-break: break-word;
+    }
+
+    .validation-list .ok {
+      color: #6ee7b7;
+    }
+
+    .validation-list .warn {
+      color: #fcd34d;
+    }
+
+    .validation-list .err {
+      color: #fca5a5;
+    }
+
+    /* ---- ready banner ---- */
+    .ready-banner {
+      margin: 0.5rem 1rem 0.75rem;
+      padding: 0.7rem 1rem;
+      background: linear-gradient(135deg, #052e1f, #064e3b);
+      border: 1px solid #065f46;
+      border-radius: 0.5rem;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .ready-banner.visible {
+      display: flex;
+    }
+
+    .ready-banner .info {
+      font-size: 0.75rem;
+      color: #a7f3d0;
+      flex: 1;
+      min-width: 140px;
+    }
+
+    .ready-banner .info strong {
+      color: #fff;
+    }
+
+    .ready-banner .info .meta {
+      display: block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      color: #6ee7b7;
+      margin-top: 0.15rem;
+      word-break: break-word;
+    }
+
+    button.download-btn {
+      background: #10b981;
+      color: #052e1f;
+      font-weight: 700;
+      padding: 0.5rem 1.2rem;
+      font-size: 0.8rem;
+    }
+
+    button.download-btn:hover {
+      background: #34d399;
+    }
+
+    /* ---- small screens ---- */
+    @media (max-width: 600px) {
+      body {
+        padding: 0.75rem;
+      }
+
+      h1 {
+        font-size: 1.1rem;
+      }
+
+      h1 span {
+        font-size: 0.6rem;
+        padding: 0.1rem 0.5rem;
+      }
+
+      .panel-head {
+        font-size: 0.6rem;
+        padding: 0.5rem 0.75rem;
+      }
+
+      .controls {
+        padding: 0.6rem 0.75rem;
+        gap: 0.4rem 0.6rem;
+      }
+
+      .ctrl {
+        min-width: 50px;
+      }
+
+      select,
+      input[type=number],
+      input[type=text] {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.4rem;
+        min-width: 50px;
+      }
+
+      button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.72rem;
+      }
+
+      .status {
+        font-size: 0.7rem;
+        padding: 0.4rem 0.75rem;
+        margin: 0.4rem 0.75rem 0;
+      }
+
+      .progress-bar {
+        margin: 0.4rem 0.75rem 0;
+      }
+
+      .diag {
+        font-size: 0.6rem;
+        padding: 0 0.75rem 0.4rem;
+      }
+
+      .validation-list {
+        font-size: 0.62rem;
+        padding: 0.25rem 0.75rem 0.4rem;
+      }
+
+      .ready-banner {
+        margin: 0.4rem 0.75rem 0.6rem;
+        padding: 0.6rem 0.8rem;
+      }
+
+      .note {
+        font-size: 0.68rem;
+        padding: 0.5rem 0.75rem;
+      }
+
+      .nav-buttons {
+        width: 100%;
+        margin-left: 0;
+      }
+
+      .nav-buttons a {
+        flex: 1;
+      }
+
+      .nav-buttons button {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .controls {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .ctrl {
+        width: 100%;
+      }
+
+      .ctrl input,
+      .ctrl select {
+        width: 100%;
+      }
+    }
+
+    /* ---- scrollbar for code ---- */
+    textarea::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    textarea::-webkit-scrollbar-track {
+      background: #0f1219;
+    }
+
+    textarea::-webkit-scrollbar-thumb {
+      background: #2a3342;
+      border-radius: 4px;
+    }
+
+    textarea::-webkit-scrollbar-thumb:hover {
+      background: #3e4a5e;
+    }
+
+    /* ---- utility ---- */
+    .hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+<div class="app">
+  <!-- Header & Navigation -->
+  <div class="header-row">
+    <h1>
+      🎬 TEKZAA Renderer V7
+      <span>deterministic · stale-safe · render → download</span>
+    </h1>
+    <div class="nav-buttons">
+      <a href="./demo.html"><button>Go to Demo</button></a>
+      <a href="./samples.html"><button>Go to Samples</button></a>
+    </div>
+  </div>
+
+  <div class="grid">
+    <!-- Left Panel: Code Editor -->
+    <div class="panel">
+      <div class="panel-head">
+        <span>📄 Animation Code — must define window.TEKZAA_RENDER</span>
+        <span id="codeSize">0 B</span>
+      </div>
+      <textarea id="code" spellcheck="false" aria-label="Animation code editor"></textarea>
+      <div class="validation-list" id="validation"></div>
+      <div class="controls">
+        <div class="ctrl">
+          <label for="aspect">Aspect</label>
+          <select id="aspect">
+            <option value="1920x1080">16:9 · 1920×1080</option>
+            <option value="1080x1920" selected>9:16 · 1080×1920</option>
+            <option value="1080x1080">1:1 · 1080×1080</option>
+            <option value="1280x720">16:9 · 1280×720</option>
+            <option value="720x1280">9:16 · 720×1280</option>
+            <option value="custom">Custom…</option>
+          </select>
+        </div>
+        <div class="ctrl">
+          <label for="w">W</label>
+          <input type="number" id="w" value="1080" min="16" max="3840" style="width:70px">
+        </div>
+        <div class="ctrl">
+          <label for="h">H</label>
+          <input type="number" id="h" value="1920" min="16" max="3840" style="width:70px">
+        </div>
+        <div class="ctrl">
+          <label for="dur">Duration s</label>
+          <input type="number" id="dur" value="5" min="0.5" max="60" step="0.5" style="width:70px">
+        </div>
+        <div class="ctrl">
+          <label for="fps">FPS</label>
+          <select id="fps">
+            <option value="24">24</option>
+            <option value="30" selected>30</option>
+            <option value="60">60</option>
+          </select>
+        </div>
+        <div class="ctrl">
+          <label for="bitrate">Bitrate</label>
+          <select id="bitrate">
+            <option value="8000000">8 Mbps</option>
+            <option value="12000000" selected>12 Mbps</option>
+            <option value="20000000">20 Mbps</option>
+            <option value="30000000">30 Mbps</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Panel: Preview & Render -->
+    <div class="panel">
+      <div class="panel-head">
+        <span>▶ Deterministic Preview</span>
+        <span id="previewInfo">—</span>
+      </div>
+      <div class="preview-stage" id="stage">
+        <canvas id="previewCanvas" aria-label="Animation preview"></canvas>
+      </div>
+      <div class="controls">
+        <button id="previewBtn" class="primary">▶ Load Preview</button>
+        <button id="captureBtn" class="success" disabled>⬇ Render MP4</button>
+        <button id="cancelBtn" class="danger" disabled>✖ Cancel</button>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress"></div>
+      </div>
+      <div class="status">
+        <span class="badge" id="statusBadge">idle</span>
+        <span id="statusText">Paste code and click Load Preview.</span>
+      </div>
+      <div class="diag" id="diagInfo"></div>
+
+      <div class="ready-banner" id="readyBanner">
+        <div class="info">
+          <strong>✅ MP4 ready</strong>
+          <span class="meta" id="readyMeta">—</span>
+        </div>
+        <button id="downloadBtn" class="download-btn">⬇ Download MP4</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== AEO/GEO/LLMO friendly visible content ===== -->
+  <div class="note" id="about-renderer">
+    <strong>About TEKZAA Renderer V7.</strong> This is a deterministic canvas-to-MP4 tool that runs entirely in your browser.
+    It uses the <strong>WebCodecs API</strong> (VideoEncoder + VideoFrame) and an in-memory MP4 muxer to convert
+    frame-by-frame canvas rendering into a downloadable H.264 MP4 file. No iframe, no external assets, no server upload.
+    <br><br>
+    <strong>Who is it for?</strong> Developers, animators, and generative artists who want to create reproducible video
+    from code — motion graphics, data visualisations, algorithmic art, or automated content generation.
+    <br><br>
+    <strong>Why deterministic?</strong> Because every frame is computed solely from the <code>time</code> argument,
+    the output is perfectly reproducible and frame-accurate. This is essential for video export, where a single
+    dropped or duplicated frame ruins the result.
+    <br><br>
+    <!--<strong>Key terms:</strong> <em>generative engine optimization (GEO)</em>, <em>answer engine optimization (AEO)</em>,
+    <em>large language model optimization (LLMO)</em>, <em>search engine optimization (SEO)</em> — this page is
+    structured with these in mind so that AI-powered search engines and answer engines can understand,
+    extract, and cite the tool accurately.
+    <br><br>-->
+    <strong>Frequently asked:</strong> Does it work offline? Yes, after initial load. What codecs are supported?
+    H.264 (AVC) via WebCodecs. Can I use external images? No — embed as data URIs. Is there a file size limit?
+    Limited only by browser memory. How do I get the best quality? Use 30–60 fps and a high bitrate (12–30 Mbps).
+    <br><br>
+    <strong>Technical contract:</strong> Your code must define <code>window.TEKZAA_RENDER = function(time, ctx, width, height) { ... }</code>.
+    The function must draw the entire frame from scratch on each call, using only <code>time</code> for animation.
+    Forbidden: <code>requestAnimationFrame</code>, <code>setTimeout</code>, <code>setInterval</code>,
+    <code>Date.now</code>, <code>performance.now</code>, <code>Math.random</code>.
+    <br><br>
+    <strong>Stale-safe guarantee:</strong> Changing any setting (code, aspect, dimensions, duration, FPS, bitrate)
+    automatically discards the previously rendered MP4 and requires a fresh render. The download button always
+    delivers a video that matches the current settings.
+  </div>
+</div>
+
+<!-- ===== MUXER ===== -->
+<script src="https://cdn.jsdelivr.net/npm/mp4-muxer@5.2.1/build/mp4-muxer.min.js"></script>
+
+<script>
+  (function () {
+    'use strict';
+
+    // ============================================================
+    // DOM
+    // ============================================================
+    const codeEl        = document.getElementById('code');
+    const codeSizeEl    = document.getElementById('codeSize');
+    const validationEl  = document.getElementById('validation');
+    const aspectEl      = document.getElementById('aspect');
+    const wEl           = document.getElementById('w');
+    const hEl           = document.getElementById('h');
+    const durEl         = document.getElementById('dur');
+    const fpsEl         = document.getElementById('fps');
+    const bitrateEl     = document.getElementById('bitrate');
+    const previewBtn    = document.getElementById('previewBtn');
+    const captureBtn    = document.getElementById('captureBtn');
+    const cancelBtn     = document.getElementById('cancelBtn');
+    const downloadBtn   = document.getElementById('downloadBtn');
+    const previewCanvas = document.getElementById('previewCanvas');
+    const stage         = document.getElementById('stage');
+    const previewInfo   = document.getElementById('previewInfo');
+    const statusBadge   = document.getElementById('statusBadge');
+    const statusText    = document.getElementById('statusText');
+    const progressFill  = document.getElementById('progress');
+    const diagInfo      = document.getElementById('diagInfo');
+    const readyBanner   = document.getElementById('readyBanner');
+    const readyMeta     = document.getElementById('readyMeta');
+
+    // ============================================================
+    // State
+    // ============================================================
+    let runtimeReady = false;
+    let renderAbort  = null;
+    let previewRaf   = 0;
+    let previewStart = 0;
+    let isRendering  = false;
+
+    let renderedBlob = null;
+    let renderedUrl  = null;
+    let renderedMeta = null;
+    let renderedFingerprint = null;
+
+    let autoPreviewTimer = 0;
+
+    // ============================================================
+    // Default demo code (TEKZAA branded)
+    // ============================================================
+    const DEFAULT_CODE = `// TEKZAA animation contract:
+//   window.TEKZAA_RENDER = function(time, ctx, width, height) { ... }
+//
+// Rules:
+//   - Draw the ENTIRE frame from scratch, every call.
+//   - Use ONLY the time argument for animation.
+//   - No requestAnimationFrame, setTimeout, setInterval.
+//   - No Date.now, performance.now, Math.random.
+//   - No external assets (images, fonts, scripts).
+
+(function () {
+  let seed = 12345;
+  function rnd() {
+    seed = (seed * 1664525 + 1013904223) >>> 0;
+    return seed / 4294967296;
+  }
+
+  window.TEKZAA_RENDER = function (time, ctx, width, height) {
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.clearRect(0, 0, width, height);
+
+    const g = ctx.createLinearGradient(0, 0, width, height);
+    g.addColorStop(0, '#0a0f1e');
+    g.addColorStop(1, '#1a0a2e');
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, width, height);
+
+    const N = 7;
+    for (let i = 0; i < N; i++) {
+      const phase = i * 1.37;
+      const speedA = 0.7 + i * 0.13;
+      const speedB = 0.9 + i * 0.09;
+      const x = width  * 0.5 + Math.sin(time * speedA + phase)     * width  * 0.35;
+      const y = height * 0.5 + Math.cos(time * speedB + phase * 2) * height * 0.30;
+      const r = (width * 0.045) * (1 + 0.6 * Math.sin(time * 0.9 + i));
+      ctx.beginPath();
+      ctx.arc(x, y, Math.max(2, r), 0, Math.PI * 2);
+      ctx.fillStyle = 'hsla(' + ((i * 51 + time * 30) % 360) + ',85%,65%,0.35)';
+      ctx.fill();
+    }
+
+    ctx.save();
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    const fs = Math.round(width * 0.12);
+    ctx.font = '800 ' + fs + 'px "Helvetica Neue", system-ui, sans-serif';
+    const tg = ctx.createLinearGradient(width * 0.3, 0, width * 0.7, 0);
+    tg.addColorStop(0,   '#7dd3fc');
+    tg.addColorStop(0.5, '#3b6eff');
+    tg.addColorStop(1,   '#a855f7');
+    ctx.fillStyle = tg;
+    const floatY = Math.sin(time * 2) * (height * 0.02);
+    ctx.fillText('TEKZAA', width * 0.5, height * 0.45 + floatY);
+    ctx.restore();
+
+    ctx.save();
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.font = '400 ' + Math.round(width * 0.02) + 'px system-ui, sans-serif';
+    ctx.fillStyle = 'rgba(139,160,255,' + (0.4 + 0.6 * Math.abs(Math.sin(time))) + ')';
+    ctx.fillText('R E N D E R E R', width * 0.5, height * 0.88);
+    ctx.restore();
+  };
+})();`;
+
+    // ============================================================
+    // Helpers
+    // ============================================================
+    function setStatus(kind, text) {
+      statusBadge.className = 'badge ' + (kind === 'idle' ? '' : kind);
+      statusBadge.textContent = kind;
+      statusText.textContent = text;
+    }
+    function setProgress(p) {
+      progressFill.style.width = (Math.max(0, Math.min(1, p)) * 100).toFixed(1) + '%';
+    }
+    function setDiag(t) { diagInfo.textContent = t || ''; }
+
+    function getDims() {
+      if (aspectEl.value === 'custom') {
+        return {
+          w: Math.max(16, Math.min(3840, parseInt(wEl.value, 10) || 1080)),
+          h: Math.max(16, Math.min(3840, parseInt(hEl.value, 10) || 1920))
+        };
+      }
+      const [w, h] = aspectEl.value.split('x').map(Number);
+      return { w, h };
+    }
+
+    function getFps()      { return parseInt(fpsEl.value, 10) || 30; }
+    function getDuration() { return Math.max(0.5, Math.min(60, parseFloat(durEl.value) || 5)); }
+    function getBitrate()  { return parseInt(bitrateEl.value, 10) || 12000000; }
+
+    // ------------------------------------------------------------
+    // Settings fingerprint
+    // ------------------------------------------------------------
+    function settingsFingerprint() {
+      const { w, h } = getDims();
+      return JSON.stringify({
+        code: codeEl.value,
+        aspect: aspectEl.value,
+        w, h,
+        fps: getFps(),
+        duration: getDuration(),
+        bitrate: getBitrate()
+      });
+    }
+
+    // ------------------------------------------------------------
+    // Stale-render invalidation
+    // ------------------------------------------------------------
+    function invalidateRenderedMP4(reason) {
+      if (!renderedBlob && !renderedUrl) {
+        readyBanner.classList.remove('visible');
+        captureBtn.textContent = '⬇ Render MP4';
+        captureBtn.classList.remove('download-btn');
+        captureBtn.classList.add('success');
+        return;
+      }
+      if (renderedUrl) { URL.revokeObjectURL(renderedUrl); renderedUrl = null; }
+      renderedBlob = null;
+      renderedMeta = null;
+      renderedFingerprint = null;
+
+      readyBanner.classList.remove('visible');
+      captureBtn.textContent = '⬇ Render MP4';
+      captureBtn.classList.remove('download-btn');
+      captureBtn.classList.add('success');
+
+      if (reason) setDiag(reason);
+    }
+
+    function ensureFreshRender() {
+      if (!renderedBlob) return false;
+      if (renderedFingerprint !== settingsFingerprint()) {
+        invalidateRenderedMP4('Settings changed — previous render discarded.');
+        return false;
+      }
+      return true;
+    }
+
+    // ============================================================
+    // Aspect / dims sync
+    // ============================================================
+    function syncAspectInputs() {
+      if (aspectEl.value !== 'custom') {
+        const [w, h] = aspectEl.value.split('x').map(Number);
+        wEl.value = w; hEl.value = h;
+        wEl.disabled = true; hEl.disabled = true;
+      } else {
+        wEl.disabled = false; hEl.disabled = false;
+      }
+    }
+
+    // ============================================================
+    // Validation
+    // ============================================================
+    function validateCode(code) {
+      const issues = [];
+      const hasContract =
+        /window\s*\.\s*TEKZAA_RENDER\s*=/.test(code) ||
+        /\bTEKZAA_RENDER\s*=\s*function/.test(code);
+      if (!hasContract) {
+        issues.push({ level: 'err', text: 'Missing window.TEKZAA_RENDER = function(time, ctx, width, height)' });
+      }
+      if (/\bMath\s*\.\s*random\s*\(/.test(code)) {
+        issues.push({ level: 'warn', text: 'Math.random() detected — use a seeded PRNG' });
+      }
+      if (/\bDate\s*\.\s*now\s*\(/.test(code)) {
+        issues.push({ level: 'warn', text: 'Date.now() detected — use the time argument' });
+      }
+      if (/\bperformance\s*\.\s*now\s*\(/.test(code)) {
+        issues.push({ level: 'warn', text: 'performance.now() detected — use the time argument' });
+      }
+      if (/\bsetTimeout\s*\(|\bsetInterval\s*\(/.test(code)) {
+        issues.push({ level: 'warn', text: 'setTimeout/setInterval detected — derive state from time' });
+      }
+      if (/\brequestAnimationFrame\s*\(/.test(code)) {
+        issues.push({ level: 'warn', text: 'requestAnimationFrame() detected — not allowed' });
+      }
+      if (/<video|<audio/i.test(code)) {
+        issues.push({ level: 'warn', text: '<video>/<audio> not supported' });
+      }
+      if (/<img[^>]+src\s*=\s*["']https?:/i.test(code)) {
+        issues.push({ level: 'warn', text: 'External <img> detected — embed as data URI' });
+      }
+      if (/\bimport\s*\(|@import\s+url\(\s*["']?https?:/i.test(code)) {
+        issues.push({ level: 'warn', text: 'External import detected — inline everything' });
+      }
+      return issues;
+    }
+
+    function renderValidation(issues) {
+      if (!issues.length) {
+        validationEl.innerHTML = '<span class="ok">✓ Validation passed</span>';
+        return;
+      }
+      validationEl.innerHTML = issues
+        .map(i => `<div class="${i.level}">${i.level === 'err' ? '✕' : '⚠'} ${i.text}</div>`)
+        .join('');
+    }
+
+    // ============================================================
+    // Runtime compilation (no iframe)
+    // ============================================================
+    function compileRuntime(code) {
+      delete window.TEKZAA_RENDER;
+
+      const forbidden = [
+        'requestAnimationFrame',
+        'cancelAnimationFrame',
+        'setTimeout',
+        'setInterval',
+        'setImmediate'
+      ];
+      const saved = {};
+      for (const k of forbidden) saved[k] = window[k];
+
+      for (const k of forbidden) {
+        window[k] = function () {
+          throw new Error('TEKZAA: ' + k + '() is not allowed in animation code');
+        };
+      }
+
+      let compileError = null;
+      try {
+        const fn = new Function(
+          '"use strict";\n' +
+          'try {\n' +
+          code + '\n' +
+          '} catch (e) { window.__TEKZAA_COMPILE_ERROR__ = e; }'
+        );
+        window.__TEKZAA_COMPILE_ERROR__ = null;
+        fn();
+        if (window.__TEKZAA_COMPILE_ERROR__) {
+          compileError = window.__TEKZAA_COMPILE_ERROR__;
+        }
+      } catch (e) {
+        compileError = e;
+      } finally {
+        for (const k of forbidden) window[k] = saved[k];
+        delete window.__TEKZAA_COMPILE_ERROR__;
+      }
+
+      if (compileError) throw new Error('Compile error: ' + compileError.message);
+      if (typeof window.TEKZAA_RENDER !== 'function') {
+        throw new Error('window.TEKZAA_RENDER is not defined after compiling code');
+      }
+      return window.TEKZAA_RENDER;
+    }
+
+    // ============================================================
+    // Preview
+    // ============================================================
+    function stopPreviewLoop() {
+      if (previewRaf) { cancelAnimationFrame(previewRaf); previewRaf = 0; }
+    }
+
+    function startPreviewLoop() {
+      stopPreviewLoop();
+      if (!runtimeReady || typeof window.TEKZAA_RENDER !== 'function') return;
+
+      const { w, h } = getDims();
+      const ctx = previewCanvas.getContext('2d', { alpha: false });
+      const duration = getDuration();
+      previewStart = performance.now();
+
+      const loop = () => {
+        const elapsed = (performance.now() - previewStart) / 1000;
+        const t = elapsed % duration;
+        try {
+          window.TEKZAA_RENDER(t, ctx, w, h);
+        } catch (e) {
+          setStatus('err', 'TEKZAA_RENDER threw: ' + e.message);
+          previewRaf = 0;
+          return;
+        }
+        previewRaf = requestAnimationFrame(loop);
+      };
+      loop();
+    }
+
+    function loadPreview(opts) {
+      const silent = opts && opts.silent;
+      const code = codeEl.value;
+      if (!code.trim()) {
+        if (!silent) setStatus('err', 'No code provided.');
+        return;
+      }
+
+      const issues = validateCode(code);
+      renderValidation(issues);
+
+      const fatal = issues.find(i => i.level === 'err');
+      if (fatal) {
+        runtimeReady = false;
+        captureBtn.disabled = true;
+        if (!silent) setStatus('err', fatal.text);
+        return;
+      }
+
+      stopPreviewLoop();
+
+      try {
+        compileRuntime(code);
+      } catch (e) {
+        runtimeReady = false;
+        captureBtn.disabled = true;
+        if (!silent) setStatus('err', 'Compile error: ' + e.message);
+        setDiag('');
+        return;
+      }
+
+      runtimeReady = true;
+      captureBtn.disabled = false;
+
+      const { w, h } = getDims();
+      previewCanvas.width  = w;
+      previewCanvas.height = h;
+
+      const maxW = stage.clientWidth  - 32;
+      const maxH = stage.clientHeight - 32;
+      const scale = Math.min(maxW / w, maxH / h, 1);
+      previewCanvas.style.width  = Math.round(w * scale) + 'px';
+      previewCanvas.style.height = Math.round(h * scale) + 'px';
+
+      const fps = getFps();
+      const duration = getDuration();
+      setStatus('ok', `Preview running — ${w}×${h} · ${fps}fps · ${duration}s`);
+      previewInfo.textContent = `${w}×${h} @ ${fps}fps`;
+
+      startPreviewLoop();
+    }
+
+    previewBtn.addEventListener('click', () => loadPreview());
+
+    // ============================================================
+    // Codec selection
+    // ============================================================
+    function pickAvcCodec(w, h, fps) {
+      const pixels = w * h * fps;
+      let level = '1f';
+      if (pixels >  921600 * 30)     level = '28';
+      if (pixels > 1920 * 1080 * 30) level = '2a';
+      if (pixels > 1920 * 1080 * 60) level = '32';
+
+      return [
+        `avc1.6400${level}`,
+        `avc1.4d00${level}`,
+        `avc1.4200${level}`
+      ];
+    }
+
+    function getMuxerNS() {
+      if (typeof Mp4Muxer  !== 'undefined' && Mp4Muxer.Muxer)  return Mp4Muxer;
+      if (typeof mp4Muxer  !== 'undefined' && mp4Muxer.Muxer)  return mp4Muxer;
+      return null;
+    }
+
+    // ============================================================
+    // Download (fresh user gesture → reliable)
+    // ============================================================
+    function downloadRenderedMP4() {
+      if (!ensureFreshRender()) {
+        setStatus('err', 'No up-to-date MP4 available. Re-render first.');
+        return;
+      }
+      if (!renderedBlob) {
+        setStatus('err', 'No rendered MP4 available.');
+        return;
+      }
+
+      if (renderedUrl) {
+        URL.revokeObjectURL(renderedUrl);
+        renderedUrl = null;
+      }
+      renderedUrl = URL.createObjectURL(renderedBlob);
+
+      const a = document.createElement('a');
+      a.href = renderedUrl;
+      a.download = renderedMeta
+        ? `tekzaa-${renderedMeta.W}x${renderedMeta.H}-${renderedMeta.fps}fps-${renderedMeta.duration}s.mp4`
+        : 'tekzaa-render.mp4';
+      a.style.display = 'none';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+
+      setStatus('ok', '⬇ Download started — check your Downloads folder.');
+    }
+
+    downloadBtn.addEventListener('click', downloadRenderedMP4);
+
+    // ============================================================
+    // Render MP4
+    // ============================================================
+    async function renderMP4() {
+      if (isRendering) return;
+
+      loadPreview({ silent: true });
+      if (!runtimeReady || typeof window.TEKZAA_RENDER !== 'function') {
+        setStatus('err', 'Runtime not ready. Fix validation errors first.');
+        return;
+      }
+      if (typeof VideoEncoder === 'undefined' || typeof VideoFrame === 'undefined') {
+        setStatus('err', 'WebCodecs not available. Use a recent Chromium browser.');
+        return;
+      }
+      const muxerNS = getMuxerNS();
+      if (!muxerNS) {
+        setStatus('err', 'MP4 muxer failed to load.');
+        return;
+      }
+
+      const { w, h } = getDims();
+      const fps      = getFps();
+      const duration = getDuration();
+      const totalFrames = Math.max(1, Math.round(fps * duration));
+      const bitrate  = getBitrate();
+
+      const W = w % 2 === 0 ? w : w + 1;
+      const H = h % 2 === 0 ? h : h + 1;
+
+      const thisFingerprint = settingsFingerprint();
+
+      if (renderedUrl) { URL.revokeObjectURL(renderedUrl); renderedUrl = null; }
+      renderedBlob = null;
+      renderedMeta = null;
+      renderedFingerprint = null;
+      readyBanner.classList.remove('visible');
+
+      stopPreviewLoop();
+
+      renderAbort = new AbortController();
+      const signal = renderAbort.signal;
+      cancelBtn.disabled = false;
+      captureBtn.disabled = true;
+      previewBtn.disabled = true;
+
+      isRendering = true;
+      setStatus('rec', `Rendering ${totalFrames} frames @ ${fps}fps…`);
+      setProgress(0);
+      setDiag('');
+
+      const renderCanvas = document.createElement('canvas');
+      renderCanvas.width  = W;
+      renderCanvas.height = H;
+      const renderCtx = renderCanvas.getContext('2d', { alpha: false });
+
+      const muxer = new muxerNS.Muxer({
+        target: new muxerNS.ArrayBufferTarget(),
+        video: { codec: 'avc', width: W, height: H },
+        fastStart: 'in-memory'
+      });
+
+      let encoderError = null;
+      let muxerError   = null;
+
+      const encoder = new VideoEncoder({
+        output: (chunk, meta) => {
+          if (muxerError || signal.aborted) return;
+          try {
+            muxer.addVideoChunk(chunk, meta);
+          } catch (e) {
+            console.error('mux addVideoChunk failed', e);
+            muxerError = e;
+          }
+        },
+        error: (e) => {
+          console.error('VideoEncoder error:', e);
+          encoderError = e;
+        }
+      });
+
+      const candidates = pickAvcCodec(W, H, fps);
+      let configured = false;
+      let lastErr = null;
+      for (const codec of candidates) {
+        const config = { codec, width: W, height: H, bitrate, framerate: fps };
+        try {
+          const support = await VideoEncoder.isConfigSupported(config);
+          if (support && support.supported) {
+            encoder.configure(support.config || config);
+            configured = true;
+            console.log('Using codec', codec);
+            break;
+          }
+        } catch (e) { lastErr = e; }
+      }
+      if (!configured) {
+        try {
+          encoder.configure({
+            codec: 'avc1.42001f',
+            width: W, height: H, bitrate, framerate: fps
+          });
+          configured = true;
+        } catch (e) { lastErr = e; }
+      }
+      if (!configured) {
+        setStatus('err', 'No supported H.264 config: ' + (lastErr && lastErr.message));
+        try { encoder.close(); } catch (_) {}
+        isRendering = false;
+        captureBtn.disabled = false;
+        previewBtn.disabled = false;
+        cancelBtn.disabled = true;
+        renderAbort = null;
+        startPreviewLoop();
+        return;
+      }
+
+      const frameDurationUs = Math.round(1_000_000 / fps);
+      const encodeQueueLimit = 4;
+      const startTime = performance.now();
+      let totalEncoded = 0;
+
+      try {
+        for (let i = 0; i < totalFrames; i++) {
+          if (signal.aborted) throw new DOMException('Render cancelled by user', 'AbortError');
+          if (encoderError)  throw encoderError;
+          if (muxerError)    throw muxerError;
+
+          const t = i / fps;
+
+          renderCtx.setTransform(1, 0, 0, 1, 0, 0);
+          renderCtx.clearRect(0, 0, W, H);
+
+          try {
+            window.TEKZAA_RENDER(t, renderCtx, W, H);
+          } catch (err) {
+            throw new Error(`TEKZAA_RENDER threw at t=${t.toFixed(4)}s: ${err.message}`);
+          }
+
+          const bitmap = await createImageBitmap(renderCanvas);
+          const frame = new VideoFrame(bitmap, {
+            timestamp: i * frameDurationUs,
+            duration:  frameDurationUs
+          });
+
+          const keyFrame = (i === 0) || (i % Math.max(1, fps * 2) === 0);
+          encoder.encode(frame, { keyFrame });
+
+          frame.close();
+          bitmap.close();
+          totalEncoded++;
+
+          if (encoder.encodeQueueSize > encodeQueueLimit) {
+            while (encoder.encodeQueueSize > 2) {
+              if (signal.aborted) throw new DOMException('Render cancelled', 'AbortError');
+              if (encoderError) throw encoderError;
+              if (muxerError)   throw muxerError;
+              await new Promise(r => setTimeout(r, 4));
+            }
+          }
+
+          const frac = (i + 1) / totalFrames;
+          setProgress(frac);
+          if (i % 5 === 0 || i === totalFrames - 1) {
+            const elapsed = (performance.now() - startTime) / 1000;
+            const eta = frac > 0 ? (elapsed / frac) * (1 - frac) : 0;
+            setStatus('rec',
+              `Frame ${i + 1}/${totalFrames} · ` +
+              `${(frac * 100).toFixed(0)}% · ` +
+              `elapsed ${elapsed.toFixed(1)}s · ` +
+              `ETA ${eta.toFixed(1)}s · ` +
+              `queue ${encoder.encodeQueueSize}`
+            );
+          }
+        }
+
+        setStatus('rec', 'Flushing encoder…');
+        await encoder.flush();
+        if (encoderError) throw encoderError;
+        if (muxerError)   throw muxerError;
+
+        encoder.close();
+
+        setStatus('rec', 'Finalizing MP4…');
+        muxer.finalize();
+        const target = muxer.target;
+        const buffer = target && target.buffer;
+        if (!buffer || buffer.byteLength === 0) {
+          throw new Error('Muxer produced an empty buffer');
+        }
+
+        renderedBlob = new Blob([buffer], { type: 'video/mp4' });
+        const sizeMB = (renderedBlob.size / 1024 / 1024).toFixed(2);
+
+        renderedMeta = {
+          W, H, fps, duration, totalFrames,
+          sizeMB, frames: totalEncoded
+        };
+        renderedFingerprint = thisFingerprint;
+
+        readyMeta.textContent = `${W}×${H} · ${fps}fps · ${duration}s · ${totalEncoded} frames · ${sizeMB} MB`;
+        readyBanner.classList.add('visible');
+
+        captureBtn.textContent = `⬇ Download MP4 (${sizeMB} MB)`;
+        captureBtn.classList.remove('success');
+        captureBtn.classList.add('download-btn');
+        captureBtn.disabled = false;
+
+        setStatus('ok', `✅ MP4 rendered — ${sizeMB} MB · ${totalEncoded} frames. Click Download.`);
+        setProgress(1);
+        setDiag(`Ready: ${W}×${H} · ${fps}fps · ${duration}s · ${sizeMB} MB`);
+      } catch (e) {
+        if (e.name === 'AbortError') {
+          setStatus('idle', 'Render cancelled.');
+          setDiag('');
+        } else {
+          console.error(e);
+          setStatus('err', 'Render failed: ' + (e && e.message ? e.message : e));
+          setDiag('');
+        }
+        try { encoder.close(); } catch (_) {}
+      } finally {
+        cancelBtn.disabled  = true;
+        renderAbort         = null;
+        previewBtn.disabled = false;
+        isRendering         = false;
+
+        if (!renderedBlob) {
+          captureBtn.textContent = '⬇ Render MP4';
+          captureBtn.classList.remove('download-btn');
+          captureBtn.classList.add('success');
+          captureBtn.disabled = false;
+        }
+
+        if (!previewRaf && runtimeReady) startPreviewLoop();
+      }
+    }
+
+    // Primary button — dual purpose
+    captureBtn.addEventListener('click', async () => {
+      if (ensureFreshRender() && renderedBlob) {
+        downloadRenderedMP4();
+        return;
+      }
+      await renderMP4();
+    });
+
+    cancelBtn.addEventListener('click', () => {
+      if (renderAbort) {
+        renderAbort.abort();
+        setStatus('idle', 'Cancelling…');
+      }
+    });
+
+    // ============================================================
+    // Setting change handling
+    // ============================================================
+    function onSettingChanged(opts) {
+      const silent = opts && opts.silent;
+
+      invalidateRenderedMP4('Settings changed — previous render discarded.');
+
+      if (autoPreviewTimer) clearTimeout(autoPreviewTimer);
+      autoPreviewTimer = setTimeout(() => {
+        autoPreviewTimer = 0;
+        loadPreview({ silent: true });
+      }, silent ? 0 : 120);
+    }
+
+    // ----- Code -----
+    codeEl.addEventListener('input', () => {
+      codeSizeEl.textContent = codeEl.value.length.toLocaleString() + ' B';
+      renderValidation(validateCode(codeEl.value));
+      onSettingChanged();
+    });
+
+    // ----- Aspect -----
+    aspectEl.addEventListener('change', () => {
+      syncAspectInputs();
+      onSettingChanged();
+    });
+
+    // ----- W / H -----
+    wEl.addEventListener('input', onSettingChanged);
+    hEl.addEventListener('input', onSettingChanged);
+    wEl.addEventListener('change', onSettingChanged);
+    hEl.addEventListener('change', onSettingChanged);
+
+    // ----- Duration -----
+    durEl.addEventListener('input', onSettingChanged);
+    durEl.addEventListener('change', onSettingChanged);
+
+    // ----- FPS -----
+    fpsEl.addEventListener('change', onSettingChanged);
+
+    // ----- Bitrate -----
+    bitrateEl.addEventListener('change', onSettingChanged);
+
+    // ============================================================
+    // Init
+    // ============================================================
+    codeEl.value = DEFAULT_CODE;
+    codeSizeEl.textContent = DEFAULT_CODE.length.toLocaleString() + ' B';
+    syncAspectInputs();
+    renderValidation(validateCode(DEFAULT_CODE));
+    setStatus('idle', 'Paste code and click Load Preview.');
+
+    setTimeout(() => loadPreview(), 250);
+
+    // Ensure preview stays fresh on window resize
+    let resizeTimer = 0;
+    window.addEventListener('resize', () => {
+      if (resizeTimer) clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        resizeTimer = 0;
+        if (!isRendering && runtimeReady) {
+          loadPreview({ silent: true });
+        }
+      }, 200);
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ===== PRIMARY META (SEO) ===== -->
+  <title>Image, Code & Video Preview — TEKZAA demo viewer</title>
+  <meta name="description" content="Preview TEKZAA demo content: image, video, generated code, and the full prompt. Copy code and prompt with one click. Optimized for AI search, GEO, AEO, and LLMO.">
+  <meta name="keywords" content="image preview, code preview, video preview, tekzaa, prompt viewer, GEO, AEO, LLMO, AI search optimization">
+  <meta name="author" content="TEKZAA">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+  <!-- ===== CANONICAL ===== -->
+  <link rel="canonical" href="https://tekzaa-renderer.netlify.app/demo">
+
+  <!-- ===== OPEN GRAPH / SOCIAL ===== -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Image, Code & Video Preview — TEKZAA demo viewer">
+  <meta property="og:description" content="Preview TEKZAA demo content: image, video, generated code, and the full prompt. Copy code and prompt with one click.">
+  <meta property="og:url" content="https://tekzaa-renderer.netlify.app/demo">
+  <meta property="og:image" content="https://tekzaa-renderer.netlify.app/demo-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Image, Code & Video Preview — TEKZAA">
+  <meta name="twitter:description" content="Preview demo image, video, code, and prompt. Copy with one click.">
+
+  <!-- ===== AEO / GEO / LLMO Structured Data ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://tekzaa-renderer.netlify.app/demo#webpage",
+        "name": "Image, Code & Video Preview — TEKZAA demo viewer",
+        "description": "A preview page for TEKZAA demo content showing an image, a video, the generated image code, and the original prompt. Includes copy-to-clipboard functionality.",
+        "url": "https://tekzaa-renderer.netlify.app/demo",
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "TEKZAA",
+          "url": "https://tekzaa-renderer.netlify.app"
+        },
+        "about": [
+          {
+            "@type": "Thing",
+            "name": "Image preview"
+          },
+          {
+            "@type": "Thing",
+            "name": "Code preview"
+          },
+          {
+            "@type": "Thing",
+            "name": "Video preview"
+          },
+          {
+            "@type": "Thing",
+            "name": "Prompt engineering"
+          }
+        ]
+      },
+      {
+        "@type": "ItemList",
+        "name": "TEKZAA demo assets",
+        "description": "List of demo resources available on this page: demo video, demo image, image code, and prompt.",
+        "numberOfItems": 4,
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Demo Video",
+            "description": "MP4 video showing the TEKZAA renderer output."
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Demo Image",
+            "description": "JPEG image generated from the TEKZAA image code."
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Image Code",
+            "description": "Source code (image-code.txt) used to generate the demo image."
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Prompt",
+            "description": "Prompt text (prompt.txt) used to generate the image code."
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is shown on this preview page?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "This page displays four demo assets: a demo video (demo.mp4), a demo image (demo-image.jpg), the image generation code (image-code.txt), and the prompt (prompt.txt). It also provides copy buttons for the code and prompt."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I copy the image code or prompt?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Click the 'Copy' button in the header of either the 'Image Code' or 'Prompt' card. The content is copied to your clipboard, and the button briefly changes to 'Copied!' to confirm."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What should I do if the demo video, image, or text files do not load?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ensure that demo.mp4, demo-image.jpg, image-code.txt, and prompt.txt are placed in the same directory as this HTML file. If a file is missing, the page will show a placeholder or an error message indicating which file could not be loaded."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this page optimized for AI search engines?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The page includes structured data (JSON-LD) for WebPage, ItemList, and FAQPage, making it easier for AI-powered search engines and answer engines to understand, extract, and cite the content. This supports GEO, AEO, and LLMO goals."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "name": "How to use the TEKZAA preview page",
+        "description": "Steps to view demo assets and copy the generated code or prompt.",
+        "totalTime": "PT1M",
+        "estimatedCost": {
+          "@type": "MonetaryAmount",
+          "currency": "USD",
+          "value": "0"
+        },
+        "step": [
+          {
+            "@type": "HowToStep",
+            "name": "View the demo video",
+            "text": "Scroll to the 'Demo Video' card and press play to watch the MP4."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "View the demo image",
+            "text": "Scroll to the 'Demo Image' card to see the generated image."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Read and copy the image code",
+            "text": "Scroll to the 'Image Code' card, read the code, and click 'Copy' to copy it to your clipboard."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Read and copy the prompt",
+            "text": "Scroll to the 'Prompt' card, read the prompt, and click 'Copy' to copy it to your clipboard."
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- ===== STYLES (unchanged, but kept for reference) ===== -->
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 40px;
+      background: #0b0b0f;
+      color: #f5f5f7;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .container {
+      width: min(1400px, 100%);
+      margin: auto;
+    }
+
+    /* ----- TOP BAR WITH START BUTTON ----- */
+    .top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    .start-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      border: none;
+      border-radius: 40px;
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: 0.25s ease;
+      box-shadow: 0 8px 24px rgba(79, 70, 229, 0.35);
+      letter-spacing: 0.3px;
+    }
+
+    .start-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(79, 70, 229, 0.5);
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    }
+
+    .start-btn:active {
+      transform: translateY(0);
+    }
+
+    .start-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    /* ----- GRID ----- */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .card {
+      overflow: hidden;
+      border: 1px solid #27272f;
+      border-radius: 16px;
+      background: #131318;
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 18px;
+      border-bottom: 1px solid #27272f;
+      background: #18181f;
+    }
+
+    .card-title {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .card-body {
+      padding: 18px;
+    }
+
+    /* IMAGE */
+    .image-card {
+      grid-column: 1 / -1;
+    }
+
+    .image-preview {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 400px;
+      padding: 25px;
+      background:
+        linear-gradient(45deg, #16161d 25%, transparent 25%),
+        linear-gradient(-45deg, #16161d 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #16161d 75%),
+        linear-gradient(-45deg, transparent 75%, #16161d 75%);
+      background-size: 30px 30px;
+      background-position: 0 0, 0 15px, 15px -15px, -15px 0;
+    }
+
+    .image-preview img {
+      display: block;
+      max-width: 100%;
+      max-height: 650px;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.45);
+    }
+
+    /* VIDEO */
+    .video-card {
+      grid-column: 1 / -1;
+    }
+
+    .video-preview {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 300px;
+      padding: 25px;
+      background: #0c0c10;
+    }
+
+    .video-preview video {
+      display: block;
+      width: 100%;
+      max-width: 900px;
+      max-height: 550px;
+      border-radius: 12px;
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.55);
+      background: #000;
+      outline: none;
+    }
+
+    .video-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      min-height: 250px;
+      color: #858590;
+      font-size: 14px;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .video-placeholder svg {
+      width: 56px;
+      height: 56px;
+      opacity: 0.5;
+      fill: #555;
+    }
+
+    /* TEXT BOXES */
+    .text-box {
+      position: relative;
+      min-height: 350px;
+    }
+
+    pre {
+      width: 100%;
+      height: 350px;
+      overflow: auto;
+      padding: 20px;
+      border: 1px solid #292933;
+      border-radius: 10px;
+      background: #0c0c10;
+      color: #d8d8e0;
+      font-family: Consolas, Monaco, "Courier New", monospace;
+      font-size: 13px;
+      line-height: 1.65;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .prompt-text {
+      height: 350px;
+      overflow: auto;
+      padding: 20px;
+      border: 1px solid #292933;
+      border-radius: 10px;
+      background: #0c0c10;
+      color: #d8d8e0;
+      font-size: 14px;
+      line-height: 1.7;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    /* COPY BUTTON */
+    .copy-btn {
+      border: 1px solid #3a3a46;
+      border-radius: 8px;
+      padding: 8px 14px;
+      background: #24242c;
+      color: #fff;
+      cursor: pointer;
+      font-size: 13px;
+      transition: 0.2s ease;
+    }
+
+    .copy-btn:hover {
+      background: #33333e;
+      border-color: #555562;
+    }
+
+    .copy-btn.copied {
+      background: #1d6b45;
+      border-color: #2b9b65;
+    }
+
+    /* STATUS */
+    .status {
+      margin-bottom: 12px;
+      color: #858590;
+      font-size: 12px;
+    }
+
+    .error {
+      color: #ff6b6b;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      body {
+        padding: 20px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .image-card,
+      .video-card {
+        grid-column: auto;
+      }
+
+      .image-preview {
+        min-height: 250px;
+      }
+
+      .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      h1 {
+        font-size: 22px;
+      }
+
+      .start-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- TOP BAR: TITLE + START BUTTON -->
+  <div class="top-bar">
+    <h1>Image, Code &amp; Video Preview</h1>
+
+    <a
+      href="https://arena.ai/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="start-btn"
+      aria-label="Start on arena.ai"
+    >
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M8 5v14l11-7z"/>
+      </svg>
+      Start
+    </a>
+  </div>
+
+  <div class="grid">
+
+    <!-- DEMO VIDEO -->
+    <section class="card video-card" aria-labelledby="video-heading">
+      <div class="card-header">
+        <span class="card-title" id="video-heading">Demo Video</span>
+      </div>
+
+      <div class="video-preview" id="videoContainer">
+        <!-- Video is injected by JS so we can show a fallback if missing -->
+      </div>
+    </section>
+
+    <!-- IMAGE -->
+    <section class="card image-card" aria-labelledby="image-heading">
+      <div class="card-header">
+        <span class="card-title" id="image-heading">Demo Image</span>
+      </div>
+
+      <div class="image-preview">
+        <img
+          id="previewImage"
+          src="./demo-image.jpg"
+          alt="Demo image generated by TEKZAA — placeholder for the image preview"
+        >
+      </div>
+    </section>
+
+    <!-- IMAGE CODE -->
+    <section class="card" aria-labelledby="code-heading">
+      <div class="card-header">
+        <span class="card-title" id="code-heading">Image Code</span>
+
+        <button
+          class="copy-btn"
+          id="copyButton"
+          onclick="copyCode()"
+          aria-label="Copy image code to clipboard"
+        >
+          Copy
+        </button>
+      </div>
+
+      <div class="card-body">
+        <div id="codeStatus" class="status" role="status">
+          Loading ./image-code.txt...
+        </div>
+        <pre id="codeBox" aria-label="Image generation code">Loading...</pre>
+      </div>
+    </section>
+
+    <!-- PROMPT -->
+    <section class="card" aria-labelledby="prompt-heading">
+      <div class="card-header">
+        <span class="card-title" id="prompt-heading">Prompt</span>
+
+        <button
+          class="copy-btn"
+          id="copyPromptButton"
+          onclick="copyPrompt()"
+          aria-label="Copy prompt to clipboard"
+        >
+          Copy
+        </button>
+      </div>
+
+      <div class="card-body">
+        <div id="promptStatus" class="status" role="status">
+          Loading ./prompt.txt...
+        </div>
+        <div id="promptBox" class="prompt-text" aria-label="Prompt text">
+          Loading...
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+</div>
+
+<script>
+  let imageCode = "";
+  let promptText = "";
+
+  // ---------- DEMO VIDEO SETUP ----------
+  function setupVideo() {
+    const container = document.getElementById("videoContainer");
+
+    const video = document.createElement("video");
+    video.controls = true;
+    video.preload = "metadata";
+    video.playsInline = true;
+    video.src = "./demo.mp4";
+
+    video.addEventListener("error", function () {
+      container.innerHTML = `
+        <div class="video-placeholder">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M4 4h16v16H4V4zm2 2v12h12V6H6zm3 2l6 4-6 4V8z"/>
+          </svg>
+          <span>Demo video not found — place <strong>demo.mp4</strong> in the same folder.</span>
+        </div>
+      `;
+    });
+
+    video.addEventListener("loadeddata", function () {
+      // nothing extra needed
+    });
+
+    container.appendChild(video);
+  }
+
+  // ---------- LOAD IMAGE CODE ----------
+  async function loadImageCode() {
+    const codeBox = document.getElementById("codeBox");
+    const status = document.getElementById("codeStatus");
+
+    try {
+      const response = await fetch("./image-code.txt");
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+      imageCode = await response.text();
+      codeBox.textContent = imageCode;
+      status.textContent = `${imageCode.length.toLocaleString()} characters loaded`;
+    } catch (error) {
+      codeBox.textContent = "Unable to load image-code.txt";
+      status.textContent = "Failed to load image-code.txt";
+      status.classList.add("error");
+      console.error(error);
+    }
+  }
+
+  // ---------- LOAD PROMPT ----------
+  async function loadPrompt() {
+    const promptBox = document.getElementById("promptBox");
+    const status = document.getElementById("promptStatus");
+
+    try {
+      const response = await fetch("./prompt.txt");
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+      promptText = await response.text();
+      promptBox.textContent = promptText;
+      status.textContent = `${promptText.length.toLocaleString()} characters loaded`;
+    } catch (error) {
+      promptBox.textContent = "Unable to load prompt.txt";
+      status.textContent = "Failed to load prompt.txt";
+      status.classList.add("error");
+      console.error(error);
+    }
+  }
+
+  // ---------- COPY IMAGE CODE ----------
+  async function copyCode() {
+    const button = document.getElementById("copyButton");
+
+    try {
+      await navigator.clipboard.writeText(imageCode);
+      button.textContent = "Copied!";
+      button.classList.add("copied");
+      setTimeout(() => {
+        button.textContent = "Copy";
+        button.classList.remove("copied");
+      }, 1500);
+    } catch (error) {
+      console.error("Copy failed:", error);
+
+      const textarea = document.createElement("textarea");
+      textarea.value = imageCode;
+      textarea.style.position = "fixed";
+      textarea.style.opacity = "0";
+      document.body.appendChild(textarea);
+      textarea.select();
+
+      try {
+        document.execCommand("copy");
+        button.textContent = "Copied!";
+        button.classList.add("copied");
+        setTimeout(() => {
+          button.textContent = "Copy";
+          button.classList.remove("copied");
+        }, 1500);
+      } catch (fallbackError) {
+        button.textContent = "Copy Failed";
+      }
+
+      document.body.removeChild(textarea);
+    }
+  }
+
+  // ---------- COPY PROMPT ----------
+  async function copyPrompt() {
+    const button = document.getElementById("copyPromptButton");
+
+    try {
+      await navigator.clipboard.writeText(promptText);
+      button.textContent = "Copied!";
+      button.classList.add("copied");
+      setTimeout(() => {
+        button.textContent = "Copy";
+        button.classList.remove("copied");
+      }, 1500);
+    } catch (error) {
+      console.error("Copy failed:", error);
+
+      const textarea = document.createElement("textarea");
+      textarea.value = promptText;
+      textarea.style.position = "fixed";
+      textarea.style.opacity = "0";
+      document.body.appendChild(textarea);
+      textarea.select();
+
+      try {
+        document.execCommand("copy");
+        button.textContent = "Copied!";
+        button.classList.add("copied");
+        setTimeout(() => {
+          button.textContent = "Copy";
+          button.classList.remove("copied");
+        }, 1500);
+      } catch (fallbackError) {
+        button.textContent = "Copy Failed";
+      }
+
+      document.body.removeChild(textarea);
+    }
+  }
+
+  // ---------- IMAGE ERROR ----------
+  document
+    .getElementById("previewImage")
+    .addEventListener("error", function () {
+      this.style.display = "none";
+      const container = this.parentElement;
+      container.innerHTML =
+        '<div class="status error">Unable to load ./demo-image.jpg</div>';
+    });
+
+  // ---------- INIT ----------
+  setupVideo();
+  loadImageCode();
+  loadPrompt();
+</script>
+
+</body>
+</html>

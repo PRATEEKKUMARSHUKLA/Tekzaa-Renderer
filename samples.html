@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ===== PRIMARY META (SEO) ===== -->
+  <title>Video & Poster Preview · input images ↔ results | TEKZAA</title>
+  <meta name="description" content="Side-by-side preview of TEKZAA input images and their generated video results. Square and vertical formats, autoplaying MP4s. Optimized for AI search, GEO, AEO, and LLMO.">
+  <meta name="keywords" content="video preview, poster preview, before after, image to video, TEKZAA, GEO, AEO, LLMO, AI search, generative engine optimization">
+  <meta name="author" content="TEKZAA">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+  <!-- ===== CANONICAL ===== -->
+  <link rel="canonical" href="https://tekzaa-renderer.netlify.app/samples">
+
+  <!-- ===== OPEN GRAPH / SOCIAL ===== -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Video & Poster Preview · input images ↔ results | TEKZAA">
+  <meta property="og:description" content="Side-by-side preview of TEKZAA input images and their generated video results. Square and vertical formats.">
+  <meta property="og:url" content="https://tekzaa-renderer.netlify.app/samples">
+  <meta property="og:image" content="https://tekzaa-renderer.netlify.app/1.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Video & Poster Preview — TEKZAA">
+  <meta name="twitter:description" content="Input images and generated videos, side by side. Square and vertical formats.">
+
+  <!-- ===== AEO / GEO / LLMO Structured Data ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://tekzaa-renderer.netlify.app/samples#webpage",
+        "name": "Video & Poster Preview · input images ↔ results",
+        "description": "A visual comparison page showing TEKZAA input images next to their generated video results. Includes square (1:1) and vertical (9:16) formats.",
+        "url": "https://tekzaa-renderer.netlify.app/samples",
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "TEKZAA",
+          "url": "https://tekzaa-renderer.netlify.app"
+        },
+        "about": [
+          { "@type": "Thing", "name": "Image to video generation" },
+          { "@type": "Thing", "name": "Video preview" },
+          { "@type": "Thing", "name": "Poster comparison" },
+          { "@type": "Thing", "name": "Generative media" }
+        ]
+      },
+      {
+        "@type": "ItemList",
+        "name": "TEKZAA input images",
+        "description": "The three input posters used to generate the demo videos.",
+        "numberOfItems": 3,
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Poster 1 (1:1)",
+            "description": "Square input image used to generate Video 1.",
+            "image": "https://tekzaa-renderer.netlify.app/1.jpg"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Poster 2 (9:16)",
+            "description": "Vertical input image used to generate Video 2.",
+            "image": "https://tekzaa-renderer.netlify.app/2.jpg"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Poster 3 (1:1)",
+            "description": "Square input image used to generate Video 3.",
+            "image": "https://tekzaa-renderer.netlify.app/3.jpg"
+          }
+        ]
+      },
+      {
+        "@type": "ItemList",
+        "name": "TEKZAA generated video results",
+        "description": "The three generated MP4 videos corresponding to the input posters.",
+        "numberOfItems": 3,
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Result Video 1 (1:1)",
+            "description": "Square MP4 generated from Poster 1.",
+            "contentUrl": "https://tekzaa-renderer.netlify.app/1.mp4",
+            "encodingFormat": "video/mp4"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Result Video 2 (9:16)",
+            "description": "Vertical MP4 generated from Poster 2.",
+            "contentUrl": "https://tekzaa-renderer.netlify.app/2.mp4",
+            "encodingFormat": "video/mp4"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Result Video 3 (1:1)",
+            "description": "Square MP4 generated from Poster 3.",
+            "contentUrl": "https://tekzaa-renderer.netlify.app/3.mp4",
+            "encodingFormat": "video/mp4"
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is shown on this page?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "This page shows three input images (posters) on the left and three generated MP4 video results on the right. The pairs are matched: Poster 1 → Video 1, Poster 2 → Video 2, and Poster 3 → Video 3. Square (1:1) and vertical (9:16) formats are both demonstrated."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What formats are the images and videos in?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The input images are JPG files (1.jpg, 2.jpg, 3.jpg). The generated videos are MP4 files (1.mp4, 2.mp4, 3.mp4) using H.264. Two aspect ratios are shown: square (1:1) and vertical (9:16)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do the videos autoplay?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Each video has autoplay, muted, and loop enabled so the results are visible immediately on the page. Controls are also provided for manual playback."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this page optimized for AI search engines?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The page includes structured data (JSON-LD) for WebPage, two ItemLists (input images and generated videos), and an FAQPage. This makes it easier for AI-powered search engines and answer engines to understand, extract, and cite the content, supporting GEO, AEO, and LLMO goals."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- ===== STYLES (unchanged) ===== -->
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    /* main wrapper: two distinct sections side by side, wrap on narrow screens */
+    .media-split {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 40px 50px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* each group = one section (videos or posters) */
+    .media-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      background: #1a1a1a;
+      padding: 25px 20px 30px;
+      border-radius: 24px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    .group-title {
+      font-size: 1.2rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #aaa;
+      margin: 0 0 8px 0;
+      border-bottom: 2px solid #333;
+      padding-bottom: 10px;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* row of media cards inside each group */
+    .media-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    /* each card holds exactly ONE video OR ONE image */
+    .media-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      transition: transform 0.2s;
+    }
+
+    .media-card:hover {
+      transform: scale(1.02);
+    }
+
+    /* square 1:1 */
+    .square {
+      width: 360px;
+      aspect-ratio: 1 / 1;
+    }
+
+    /* vertical 9:16 */
+    .vertical {
+      width: 203px;
+      aspect-ratio: 9 / 16;
+    }
+
+    /* all media elements fill the card */
+    .media-card video,
+    .media-card img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+      background: #000;
+    }
+
+    /* small adjustments for mobile */
+    @media (max-width: 1100px) {
+      .square {
+        width: 300px;
+      }
+
+      .vertical {
+        width: 170px;
+      }
+
+      .media-group {
+        padding: 20px 15px 25px;
+      }
+
+      .media-split {
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 750px) {
+      .media-row {
+        gap: 20px;
+      }
+
+      .square {
+        width: 260px;
+      }
+
+      .vertical {
+        width: 147px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .media-split {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+      }
+
+      .media-group {
+        width: 100%;
+      }
+
+      .media-row {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .square {
+        width: min(80vw, 300px);
+      }
+
+      .vertical {
+        width: min(45vw, 160px);
+      }
+    }
+
+    @media (max-width: 420px) {
+      .square {
+        width: 90vw;
+      }
+
+      .vertical {
+        width: 55vw;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="media-split">
+
+    <!-- ========== POSTERS / IMAGES GROUP ========== -->
+    <section class="media-group" aria-labelledby="input-heading">
+      <div class="group-title" id="input-heading">Input Images</div>
+      <div class="media-row">
+        <!-- 1:1 image 1 -->
+        <div class="media-card square">
+          <img src="1.jpg" alt="Poster 1 — square 1:1 input image for Video 1" loading="lazy">
+        </div>
+
+        <!-- 9:16 image 2 (kept same aspect as its video for visual pairing) -->
+        <div class="media-card vertical">
+          <img src="2.jpg" alt="Poster 2 — vertical 9:16 input image for Video 2" loading="lazy">
+        </div>
+
+        <!-- 1:1 image 3 -->
+        <div class="media-card square">
+          <img src="3.jpg" alt="Poster 3 — square 1:1 input image for Video 3" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== VIDEOS GROUP ========== -->
+    <section class="media-group" aria-labelledby="results-heading">
+      <div class="group-title" id="results-heading">Results</div>
+      <div class="media-row">
+        <!-- 1:1 video 1 -->
+        <div class="media-card square">
+          <video
+            src="1.mp4"
+            controls
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            aria-label="Result Video 1 — square 1:1 generated from Poster 1">
+          </video>
+        </div>
+
+        <!-- 9:16 video 2 -->
+        <div class="media-card vertical">
+          <video
+            src="2.mp4"
+            controls
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            aria-label="Result Video 2 — vertical 9:16 generated from Poster 2">
+          </video>
+        </div>
+
+        <!-- 1:1 video 3 -->
+        <div class="media-card square">
+          <video
+            src="3.mp4"
+            controls
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            aria-label="Result Video 3 — square 1:1 generated from Poster 3">
+          </video>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===== AEO/GEO/LLMO friendly visible summary (hidden visually, present for parsers) ===== -->
+  <div hidden>
+    <h2>About this comparison</h2>
+    <p>
+      This page compares three input images (posters) with three generated MP4 video results.
+      Poster 1 (1.jpg, square 1:1) produces Video 1 (1.mp4, square 1:1).
+      Poster 2 (2.jpg, vertical 9:16) produces Video 2 (2.mp4, vertical 9:16).
+      Poster 3 (3.jpg, square 1:1) produces Video 3 (3.mp4, square 1:1).
+      The videos autoplay, are muted, and loop. Controls are available for manual playback.
+    </p>
+    <p>
+      Structured data includes a WebPage, two ItemLists (input images and video results),
+      and an FAQPage with four questions covering content, formats, autoplay, and
+      AI-search optimization. This supports GEO (generative engine optimization),
+      AEO (answer engine optimization), LLMO (large language model optimization),
+      and traditional SEO.
+    </p>
+  </div>
+
+</body>
+</html>

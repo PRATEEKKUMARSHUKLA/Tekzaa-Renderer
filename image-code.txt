@@ -1,0 +1,455 @@
+window.TEKZAA_RENDER = function(time, ctx, width, height) {
+    function safeNumber(v, fallback) {
+        return Number.isFinite(v) ? v : fallback;
+    }
+function safePositive(v, fallback) {
+    return Number.isFinite(v) && v > 0 ? v : fallback;
+}
+
+function safeClamp(v, min, max, fallback) {
+    if (!Number.isFinite(v)) return fallback;
+    return Math.max(min, Math.min(max, v));
+}
+
+function safeLerp(a, b, t) {
+    a = safeNumber(a, 0);
+    b = safeNumber(b, 0);
+    t = safeClamp(t, 0, 1, 0);
+    return a + (b - a) * t;
+}
+
+function safeGradient(c, x0, y0, x1, y1) {
+    return c.createLinearGradient(
+        safeNumber(x0, 0),
+        safeNumber(y0, 0),
+        safeNumber(x1, 1),
+        safeNumber(y1, 1)
+    );
+}
+
+function safeRadialGradient(c, x0, y0, r0, x1, y1, r1) {
+    return c.createRadialGradient(
+        safeNumber(x0, 0),
+        safeNumber(y0, 0),
+        Math.max(0, safeNumber(r0, 0)),
+        safeNumber(x1, 0),
+        safeNumber(y1, 0),
+        Math.max(0.001, safeNumber(r1, 1))
+    );
+}
+
+function progressAt(t, start, duration) {
+    t = safeNumber(t, 0);
+    start = safeNumber(start, 0);
+    duration = safePositive(duration, 0.001);
+    return safeClamp((t - start) / duration, 0, 1, 0);
+}
+
+function easeOutCubic(t) {
+    t = safeClamp(t, 0, 1, 0);
+    return 1 - Math.pow(1 - t, 3);
+}
+
+function easeOutBack(t) {
+    t = safeClamp(t, 0, 1, 0);
+    var c1 = 1.70158;
+    var c3 = c1 + 1;
+    return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2);
+}
+
+function drawText(c, text, x, y, size, weight, color, align, alpha) {
+    x = safeNumber(x, 0);
+    y = safeNumber(y, 0);
+    size = safePositive(size, 12);
+    alpha = safeClamp(alpha, 0, 1, 1);
+    c.save();
+    c.globalAlpha = alpha;
+    c.font = String(weight || "400") + " " + size + "px Arial, Helvetica, sans-serif";
+    c.fillStyle = color || "#333333";
+    c.textAlign = align || "left";
+    c.textBaseline = "middle";
+    c.fillText(String(text || ""), x, y);
+    c.restore();
+}
+
+function roundRect(c, x, y, w, h, r) {
+    x = safeNumber(x, 0);
+    y = safeNumber(y, 0);
+    w = safePositive(w, 1);
+    h = safePositive(h, 1);
+    r = safeClamp(r, 0, Math.min(w, h) * 0.5, 0);
+    c.beginPath();
+    c.moveTo(x + r, y);
+    c.lineTo(x + w - r, y);
+    c.quadraticCurveTo(x + w, y, x + w, y + r);
+    c.lineTo(x + w, y + h - r);
+    c.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+    c.lineTo(x + r, y + h);
+    c.quadraticCurveTo(x, y + h, x, y + h - r);
+    c.lineTo(x, y + r);
+    c.quadraticCurveTo(x, y, x + r, y);
+    c.closePath();
+}
+
+var W = safePositive(width, 1080);
+var H = safePositive(height, 1920);
+
+ctx.clearRect(0, 0, W, H);
+
+var designW = 800;
+var designH = 500;
+var scale = Math.min(W / designW, H / designH);
+scale = safePositive(scale, 1);
+
+var ox = safeNumber((W - designW * scale) * 0.5, 0);
+var oy = safeNumber((H - designH * scale) * 0.5, 0);
+
+ctx.save();
+ctx.translate(ox, oy);
+ctx.scale(scale, scale);
+
+var intro = easeOutCubic(progressAt(time, 0, 0.9));
+var chartReveal = easeOutBack(progressAt(time, 0.35, 1.25));
+var labelsReveal = easeOutCubic(progressAt(time, 1.0, 0.9));
+var lineReveal = easeOutCubic(progressAt(time, 1.15, 0.8));
+var subtlePulse = 1 + Math.sin(safeNumber(time, 0) * 2.2) * 0.012;
+
+var bg = safeGradient(ctx, 0, 0, 0, designH);
+bg.addColorStop(0, "#ffffff");
+bg.addColorStop(1, "#f8f9fa");
+ctx.fillStyle = bg;
+ctx.fillRect(0, 0, designW, designH);
+
+for (var gx = 0; gx < 800; gx += 40) {
+    ctx.strokeStyle = "rgba(180,190,200,0.08)";
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(gx, 70);
+    ctx.lineTo(gx, 455);
+    ctx.stroke();
+}
+
+for (var gy = 70; gy < 460; gy += 40) {
+    ctx.strokeStyle = "rgba(180,190,200,0.08)";
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(0, gy);
+    ctx.lineTo(800, gy);
+    ctx.stroke();
+}
+
+var titleY = safeLerp(12, 42, intro);
+drawText(ctx, "3D CHART DIAGRAM", 400, titleY, 25, "700", "#565656", "center", intro);
+
+var dots = [
+    { x: 374, color: "#168fd2" },
+    { x: 386, color: "#21a9df" },
+    { x: 398, color: "#82c341" },
+    { x: 410, color: "#f5a623" }
+];
+
+for (var di = 0; di < dots.length; di++) {
+    ctx.fillStyle = dots[di].color;
+    ctx.fillRect(dots[di].x, safeNumber(titleY - 27, 10), 6, 6);
+}
+
+drawText(ctx, "I N F O G R A P H I C", 400, 61, 10, "600", "#999999", "center", intro);
+
+var cx = 398;
+var cy = 272;
+var rx = 148;
+var ry = 78;
+var depth = 53;
+
+var values = [20, 40, 17, 23, 25];
+var total = 125;
+var startAngle = -Math.PI * 0.98;
+
+var colors = [
+    ["#0878c7", "#0563a8"],
+    ["#2aa8df", "#168ec5"],
+    ["#8aca3b", "#6eae2d"],
+    ["#ff991d", "#e57d08"],
+    ["#f4f4f4", "#d8d8d8"]
+];
+
+var sectorAngles = [];
+var runningAngle = startAngle;
+
+for (var vi = 0; vi < values.length; vi++) {
+    var portion = safeNumber(values[vi], 0) / safePositive(total, 1);
+    var sweep = portion * Math.PI * 2;
+    sectorAngles.push({
+        start: runningAngle,
+        end: runningAngle + sweep,
+        mid: runningAngle + sweep * 0.5
+    });
+    runningAngle += sweep;
+}
+
+var chartScale = safeClamp(chartReveal, 0, 1, 0);
+var currentRx = safeLerp(0, rx, chartScale);
+var currentRy = safeLerp(0, ry, chartScale);
+var currentDepth = safeLerp(0, depth, chartScale);
+
+ctx.save();
+ctx.translate(cx, cy);
+
+var shadowAlpha = safeClamp(chartScale * 0.23, 0, 0.23, 0);
+ctx.save();
+ctx.globalAlpha = shadowAlpha;
+ctx.fillStyle = "#8b8b8b";
+ctx.beginPath();
+ctx.ellipse(8, currentDepth + 18, Math.max(1, currentRx * 0.96), Math.max(1, currentRy * 0.44), 0, 0, Math.PI * 2);
+ctx.fill();
+ctx.restore();
+
+for (var si = values.length - 1; si >= 0; si--) {
+    var sec = sectorAngles[si];
+    var a0 = sec.start;
+    var a1 = sec.end;
+
+    var steps = 20;
+    var isBottomVisible = Math.sin(sec.mid) > -0.25;
+    var drawDepth = isBottomVisible ? currentDepth : currentDepth * 0.72;
+
+    for (var layer = Math.max(1, Math.floor(drawDepth)); layer >= 1; layer--) {
+        var yy = layer;
+
+        ctx.beginPath();
+        ctx.moveTo(
+            Math.cos(a0) * currentRx,
+            Math.sin(a0) * currentRy + yy
+        );
+
+        for (var st = 0; st <= steps; st++) {
+            var u = st / steps;
+            var ang = safeLerp(a0, a1, u);
+            ctx.lineTo(
+                Math.cos(ang) * currentRx,
+                Math.sin(ang) * currentRy + yy
+            );
+        }
+
+        ctx.lineTo(
+            Math.cos(a0) * currentRx,
+            Math.sin(a0) * currentRy + yy
+        );
+        ctx.closePath();
+
+        var sideGrad = safeGradient(
+            ctx,
+            -currentRx,
+            -currentRy + yy,
+            currentRx,
+            currentRy + yy
+        );
+        sideGrad.addColorStop(0, colors[si][1]);
+        sideGrad.addColorStop(0.5, colors[si][0]);
+        sideGrad.addColorStop(1, colors[si][1]);
+
+        ctx.fillStyle = sideGrad;
+        ctx.fill();
+    }
+}
+
+for (var ti = 0; ti < values.length; ti++) {
+    var top = sectorAngles[ti];
+
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+
+    var topSteps = 40;
+    for (var tt = 0; tt <= topSteps; tt++) {
+        var tu = tt / topSteps;
+        var ta = safeLerp(top.start, top.end, tu);
+        ctx.lineTo(
+            Math.cos(ta) * currentRx,
+            Math.sin(ta) * currentRy
+        );
+    }
+
+    ctx.closePath();
+
+    var topGrad = safeGradient(
+        ctx,
+        -currentRx,
+        -currentRy,
+        currentRx,
+        currentRy
+    );
+
+    topGrad.addColorStop(0, colors[ti][0]);
+    topGrad.addColorStop(0.65, colors[ti][0]);
+    topGrad.addColorStop(1, colors[ti][1]);
+
+    ctx.fillStyle = topGrad;
+    ctx.fill();
+
+    ctx.strokeStyle = "rgba(255,255,255,0.13)";
+    ctx.lineWidth = 1;
+    ctx.stroke();
+}
+
+ctx.restore();
+
+function pointOnChart(angle, distance) {
+    return {
+        x: cx + Math.cos(angle) * distance,
+        y: cy + Math.sin(angle) * distance * (safePositive(ry, 1) / safePositive(rx, 1))
+    };
+}
+
+var labelData = [
+    {
+        value: "20%",
+        angle: sectorAngles[0].mid,
+        circleX: 164,
+        circleY: 120,
+        side: "left",
+        color: "#168fd2"
+    },
+    {
+        value: "40%",
+        angle: sectorAngles[1].mid,
+        circleX: 537,
+        circleY: 92,
+        side: "right",
+        color: "#20a4dc"
+    },
+    {
+        value: "17%",
+        angle: sectorAngles[2].mid,
+        circleX: 603,
+        circleY: 258,
+        side: "right",
+        color: "#83c53a"
+    },
+    {
+        value: "23%",
+        angle: sectorAngles[3].mid,
+        circleX: 557,
+        circleY: 390,
+        side: "right",
+        color: "#f39a18"
+    },
+    {
+        value: "25%",
+        angle: sectorAngles[4].mid,
+        circleX: 183,
+        circleY: 364,
+        side: "left",
+        color: "#dddddd"
+    }
+];
+
+for (var li = 0; li < labelData.length; li++) {
+    var ld = labelData[li];
+    var lp = safeClamp(labelsReveal, 0, 1, 0);
+    var lineP = safeClamp(lineReveal, 0, 1, 0);
+
+    var anchor = pointOnChart(ld.angle, rx * 0.98);
+    var midX = ld.side === "left" ? 238 : 510;
+    var targetX = ld.side === "left" ? ld.circleX + 22 : ld.circleX - 22;
+
+    var animatedAnchorX = safeLerp(anchor.x, midX, 1 - chartScale);
+    var animatedAnchorY = safeLerp(anchor.y, cy, 1 - chartScale);
+
+    var elbowX = safeLerp(midX, targetX, lineP);
+    var elbowY = ld.circleY;
+
+    ctx.save();
+    ctx.globalAlpha = lp;
+
+    ctx.strokeStyle = ld.color;
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(animatedAnchorX, animatedAnchorY);
+    ctx.lineTo(elbowX, elbowY);
+    ctx.lineTo(targetX, elbowY);
+    ctx.stroke();
+
+    ctx.fillStyle = ld.color;
+    ctx.beginPath();
+    ctx.arc(animatedAnchorX, animatedAnchorY, 2.2, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.restore();
+
+    var badgeP = easeOutBack(progressAt(time, 1.05 + li * 0.1, 0.65));
+    var bx = ld.circleX;
+    var by = ld.circleY;
+    var br = 29 * badgeP * subtlePulse;
+
+    ctx.save();
+    ctx.translate(bx, by);
+    ctx.scale(
+        safeNumber(badgeP * subtlePulse, 1),
+        safeNumber(badgeP * subtlePulse, 1)
+    );
+
+    ctx.shadowColor = "rgba(0,0,0,0.12)";
+    ctx.shadowBlur = 8;
+    ctx.shadowOffsetX = 1;
+    ctx.shadowOffsetY = 3;
+
+    ctx.fillStyle = "#ffffff";
+    ctx.beginPath();
+    ctx.arc(0, 0, 27, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.shadowColor = "rgba(0,0,0,0)";
+
+    ctx.strokeStyle = "#e8e8e8";
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(0, 0, 27, 0, Math.PI * 2);
+    ctx.stroke();
+
+    ctx.strokeStyle = ld.color;
+    ctx.lineWidth = 5;
+    ctx.lineCap = "round";
+
+    var arcStart = -Math.PI * 0.5;
+    var arcAmount = Math.PI * 1.45;
+
+    ctx.beginPath();
+    ctx.arc(0, 0, 27, arcStart, arcStart + arcAmount);
+    ctx.stroke();
+
+    drawText(ctx, ld.value, 0, 1, 17, "500", "#666666", "center", 1);
+
+    ctx.restore();
+}
+
+var leftTextAlpha = easeOutCubic(progressAt(time, 1.35, 0.7));
+var rightTextAlpha = easeOutCubic(progressAt(time, 1.45, 0.7));
+
+drawText(ctx, "LOREM IPSUM", 100, 143, 7, "700", "#6f6f6f", "left", leftTextAlpha);
+drawText(ctx, "Lorem ipsum dolor sit amet", 100, 153, 5.5, "400", "#999999", "left", leftTextAlpha);
+drawText(ctx, "consectetur adipiscing elit", 100, 161, 5.5, "400", "#999999", "left", leftTextAlpha);
+drawText(ctx, "sed do eiusmod tempor", 100, 169, 5.5, "400", "#999999", "left", leftTextAlpha);
+
+drawText(ctx, "LOREM IPSUM", 620, 118, 7, "700", "#6f6f6f", "left", rightTextAlpha);
+drawText(ctx, "Lorem ipsum dolor sit amet", 620, 128, 5.5, "400", "#999999", "left", rightTextAlpha);
+drawText(ctx, "consectetur adipiscing elit", 620, 136, 5.5, "400", "#999999", "left", rightTextAlpha);
+drawText(ctx, "sed do eiusmod tempor", 620, 144, 5.5, "400", "#999999", "left", rightTextAlpha);
+
+drawText(ctx, "LOREM IPSUM", 617, 279, 7, "700", "#6f6f6f", "left", rightTextAlpha);
+drawText(ctx, "Lorem ipsum dolor sit amet", 617, 289, 5.5, "400", "#999999", "left", rightTextAlpha);
+drawText(ctx, "consectetur adipiscing elit", 617, 297, 5.5, "400", "#999999", "left", rightTextAlpha);
+drawText(ctx, "sed do eiusmod tempor", 617, 305, 5.5, "400", "#999999", "left", rightTextAlpha);
+
+drawText(ctx, "LOREM IPSUM", 620, 391, 7, "700", "#6f6f6f", "left", rightTextAlpha);
+drawText(ctx, "Lorem ipsum dolor sit amet", 620, 401, 5.5, "400", "#999999", "left", rightTextAlpha);
+drawText(ctx, "consectetur adipiscing elit", 620, 409, 5.5, "400", "#999999", "left", rightTextAlpha);
+drawText(ctx, "sed do eiusmod tempor", 620, 417, 5.5, "400", "#999999", "left", rightTextAlpha);
+
+drawText(ctx, "LOREM IPSUM", 76, 393, 7, "700", "#6f6f6f", "left", leftTextAlpha);
+drawText(ctx, "Lorem ipsum dolor sit amet", 76, 403, 5.5, "400", "#999999", "left", leftTextAlpha);
+drawText(ctx, "consectetur adipiscing elit", 76, 411, 5.5, "400", "#999999", "left", leftTextAlpha);
+drawText(ctx, "sed do eiusmod tempor", 76, 419, 5.5, "400", "#999999", "left", leftTextAlpha);
+
+ctx.restore();
+
+};
